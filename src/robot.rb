@@ -44,9 +44,6 @@ loop do
         move(f, @x_coordinate, @y_coordinate)
         p "x value is now: #{@x_coordinate}"
         p "y value is now: #{@y_coordinate}"
-        # p "facing #{f} direction"
-        # puts "moving the robot #{f}"
-        # include function that runs a case statement to carry out move calcs
     when "LEFT"
         
         puts "turning the robot left"
@@ -61,8 +58,6 @@ loop do
     movement = nil
     
     def move(f, x_coordinate, y_coordinate)
-        # p @x_coordinate
-        # p y_coordinate
         case f
     
         when "NORTH" 
@@ -74,7 +69,6 @@ loop do
             # if y_coordinate < 0 or >= 5 tell user it's an invalid move and reset y_coordinate to previous value
             if  (@y_coordinate < 0) || (@y_coordinate >= 5)
                 puts "Invalid move"
-                # TODO: probably won't work for cases less than 0 how you want it to
                 @y_coordinate-=1                
             end
     
@@ -87,7 +81,6 @@ loop do
             # if x_coordinate >= 5 tell user it's an invalid move and reset x_coordinate to previous value
             if  (@x_coordinate < 0) || (@x_coordinate >= 5)
                 puts "Invalid move"
-                # TODO: probably won't work for cases less than 0 how you want it to
                 @x_coordinate-=1                
             end
         when "SOUTH" 
@@ -99,7 +92,6 @@ loop do
             # if y_coordinate >= 5 tell user it's an invalid move and reset y_coordinate to previous value
             if  (@y_coordinate < 0 || @y_coordinate >= 5)
                 puts "Invalid move"
-                # TODO: probably won't work for cases less than 0 how you want it to
                 @y_coordinate+=1                
             end
 
@@ -112,7 +104,6 @@ loop do
             # if x_coordinate >= 5 tell user it's an invalid move and reset x_coordinate to previous value
             if  (@x_coordinate < 0) || (@x_coordinate >= 5)
                 puts "Invalid move"
-                # TODO: probably won't work for cases less than 0 how you want it to
                 @x_coordinate+=1                
             end
         else
