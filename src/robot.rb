@@ -44,17 +44,10 @@ loop do
         move(@f, @x_coordinate, @y_coordinate)
         p "x value is now: #{@x_coordinate}"
         p "y value is now: #{@y_coordinate}"
+
     when "LEFT"
-        # when user enters left, increment directions index by 1 and return new value
-        p @f
-        idx = directions.index(@f) - 1
-        @f = directions[idx]
-        @f
-        p "direction is at index no: #{idx}"
-        p "direction is now: #{@f}"
-        # I assume when user then chooses move, 
-        # the new value of f will be new value and moves will run as setup
-        puts "turning the robot left"
+        turn_left(@f, @directions)
+
     when "RIGHT"
         turn_right(@f, @directions)
 
@@ -133,6 +126,12 @@ loop do
             end
         p "direction is now: #{@f}"
         # puts "turning the robot right"
+    end
+
+    def turn_left(f, directions)
+        idx = directions.index(@f) - 1
+        @f = directions[idx]
+        p "on left @f = #{@f}"        
     end
    
 end
