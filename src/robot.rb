@@ -23,7 +23,7 @@ loop do
         raise TypeError, 'Invalid coordinates' unless x.is_a? Integer and y.is_a? Integer
         direction = instructions.last()
     
-        if (x >= 0 && x < 5) == false || (y >= 0 && y < 5) == true
+        if (x >= 0 && x < 5) == true && (y >= 0 && y < 5) == true
             x_coordinate = x
             y_coordinate = y
         else
@@ -33,6 +33,7 @@ loop do
         directions = ["NORTH", "EAST", "SOUTH", "WEST"]
         if directions.include?(direction) === true
             f = direction
+        else
             puts "invalid direction. Robot can only face north, south, east or west"
         end
 
