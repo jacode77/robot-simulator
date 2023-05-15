@@ -5,11 +5,12 @@ command = nil
 @y_coordinate = nil
 @f = nil
 @directions = ["NORTH", "EAST", "SOUTH", "WEST"]
+
 loop do
     command = gets.upcase.chomp.split(" ")
 
-    # system "clear"
-    p command[0]
+    system "clear"
+    
     if command == "QUIT" || command == "Q"
         break
     end
@@ -54,7 +55,7 @@ loop do
     when "REPORT"
         puts "Output: #{@x_coordinate},#{@y_coordinate}, #{@f}"
     else
-        puts "Robot does not compute. Please enter valid command & in the correct order -> 2,2,north"
+        puts "Robot does not compute. Please enter valid command & in the correct order -> place 2,2,north"
     end
 
     movement = nil
@@ -63,48 +64,48 @@ loop do
         case f
     
         when "NORTH" 
-            # until coordinate reaches 4 increment x_coordinate value by 1, for valid coordinates
+            # if y_coordinate >= to 0 and <= 4 increment y_coordinate value by 1
             if (@y_coordinate >= 0) && (@y_coordinate <= 4)
                 @y_coordinate +=1
             end
 
-            # if y_coordinate < 0 or >= 5 tell user it's an invalid move and reset y_coordinate to previous value
-            if  (@y_coordinate < 0) || (@y_coordinate >= 5)
+            # if y_coordinate < 0 or > 4 tell user it's an invalid move and reset y_coordinate to previous value
+            if  (@y_coordinate < 0) || (@y_coordinate > 4)
                 puts "Invalid move"
                 @y_coordinate-=1                
             end
             
         when "EAST" 
-             # until coordinate reaches 4 increment x_coordinate value by 1, for valid coordinates
+            # if x_coordinate is >= to 0 and <= 4, increment x_coordinate value by 1
              if (@x_coordinate >= 0) && (@x_coordinate <= 4)
                 @x_coordinate +=1
             end
 
-            # if x_coordinate >= 5 tell user it's an invalid move and reset x_coordinate to previous value
-            if  (@x_coordinate < 0) || (@x_coordinate >= 5)
+            # if x_coordinate < 0 or > 4 tell user it's an invalid move and reset x_coordinate to previous value
+            if  (@x_coordinate < 0) || (@x_coordinate > 4)
                 puts "Invalid move"
                 @x_coordinate-=1                
             end
             
         when "SOUTH" 
-            # until coordinate reaches 4 increment x_coordinate value by 1, for valid coordinates
+            # if y_coordinate >= 0 and <= 4, decrement y_coordinate value by 1
             if (@y_coordinate >= 0) && (@y_coordinate <= 4)
                 @y_coordinate -=1
             end
 
-            # if y_coordinate >= 5 tell user it's an invalid move and reset y_coordinate to previous value
+            # if y_coordinate <= 0 or >= 5 tell user it's an invalid move and reset y_coordinate to previous value
             if  (@y_coordinate < 0 || @y_coordinate >= 5)
                 puts "Invalid move"
                 @y_coordinate+=1                
             end
 
         when "WEST" 
-            # until coordinate reaches 4 increment x_coordinate value by 1, for valid coordinates
+            # if x_coordinate >= 0 and <=4, decrement x_coordinate value by 1
             if (@x_coordinate >= 0) && (@x_coordinate <= 4)
                 @x_coordinate -=1
             end
 
-            # if x_coordinate >= 5 tell user it's an invalid move and reset x_coordinate to previous value
+            # if x_coordinate < 0 or >= 5 tell user it's an invalid move and reset x_coordinate to previous value
             if  (@x_coordinate < 0) || (@x_coordinate >= 5)
                 puts "Invalid move"
                 @x_coordinate+=1                
@@ -125,7 +126,6 @@ loop do
                 @f = directions[0]
             end
         p "direction is now: #{@f}"
-        # puts "turning the robot right"
     end
 
     def turn_left(f, directions)
