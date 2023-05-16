@@ -15,7 +15,9 @@ loop do
         break
     end
 
-    case command[0]
+    selected_command = command[0]
+
+    case selected_command
     when "PLACE"
         instructions = command[1].split(",")
     
