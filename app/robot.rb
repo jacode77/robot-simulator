@@ -1,3 +1,4 @@
+puts "Robot only takes the following input options: PLACE X,Y,F; MOVE; LEFT; RIGHT; REPORT; QUIT"
 puts "What is your command?"
 
 command = nil
@@ -9,11 +10,7 @@ command = nil
 loop do
     command = gets.upcase.chomp.split(" ")
 
-    system "clear"
-    
-    if command == "QUIT" || command == "Q"
-        break
-    end
+    # system "clear"
 
     selected_command = command[0]
 
@@ -56,6 +53,10 @@ loop do
 
     when "REPORT"
         puts "Output: #{@x_coordinate},#{@y_coordinate}, #{@f}"
+
+    when "QUIT"
+        puts "Goodbye"
+        exit
     else
         puts "Robot does not compute. Please enter valid command & in the correct order -> place 2,2,north"
     end
